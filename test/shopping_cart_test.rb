@@ -35,19 +35,17 @@ class ShoppingCartTest < Minitest::Test
 
 
     product2 = Product.new(:meat, 'chicken', 4.50, '2')
-  # binding.pry
     @cart.add_product(product2)
+
     assert_equal [product1, product2], @cart.products
   end
 
   def test_details
-    skip
     assert_equal ({name: "King Soopers", capacity: 30}), @cart.details
-
   end
-  #
+
   def test_total_number_of_products
-    skip
+  
     product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
     product2 = Product.new(:meat, 'chicken', 4.50, '2')
     product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
