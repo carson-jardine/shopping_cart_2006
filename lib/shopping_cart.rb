@@ -7,4 +7,14 @@ class ShoppingCart
     @products = []
   end
 
+  def add_product(product)
+    @products << product
+  end
+
+  # def details(cart)
+  #   cart{
+  #     name: @cart.name,
+  #     capacity: @cart.capacity
+  #   }
+  # end
 end
