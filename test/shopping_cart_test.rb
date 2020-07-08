@@ -40,8 +40,37 @@ class ShoppingCartTest < Minitest::Test
     assert_equal [product1, product2], @cart.products
   end
 
-  # def test_details
-  #   assert_equal ({name: "King Soopers", capacity: 30}), @cart.details
+  def test_details
+    skip
+    assert_equal ({name: "King Soopers", capacity: 30}), @cart.details
+
+  end
   #
-  # end
+  def test_total_number_of_products
+    skip
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
+
+    @cart.add_product(product1)
+    @cart.add_product(product2)
+    @cart.add_product(product3)
+
+    assert_equal 13, @cart.total_number_of_products
+  end
+
+  def test_products_by_category
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
+    product4 = Product.new(:produce, 'apples', 0.99, '20')
+
+    @cart.add_product(product1)
+    @cart.add_product(product2)
+    @cart.add_product(product3)
+    @cart.add_product(product4)
+
+    assert_equal [product1, product3], @cart.products_by_category(:paper)
+  end
+
 end
